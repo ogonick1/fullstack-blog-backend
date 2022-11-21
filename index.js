@@ -12,7 +12,7 @@ import { register, login, getMe } from './controllers/UserController.js';
 import * as PostController from './controllers/PostController.js'
 import handleValidationErrors from './utils/handleValidationErrors.js';
 
-mongoose.connect('mongodb+srv://ogonick:ogonick@cluster0.kaj4xt4.mongodb.net/?retryWrites=true&w=majority')
+mongoose.connect(process.env.MOGODB_URI)
 .then(()=> {
   console.log('db Ok')
 })
@@ -60,7 +60,7 @@ app.post('/posts', checkAuth, postCreateValidation, handleValidationErrors, Post
 app.delete('/posts/:id', checkAuth, PostController.remove);
 app.patch('/posts/:id',checkAuth, handleValidationErrors, PostController.update);
 
-app.listen(4444, (err)=> {
+app.listen(process.env.PORT || 4444, (err)=> {
   if (err ) {
     return console.log(err);
   }
