@@ -12,6 +12,7 @@ import { register, login, getMe } from './controllers/UserController.js';
 import * as PostController from './controllers/PostController.js'
 import handleValidationErrors from './utils/handleValidationErrors.js';
 
+// mongoose.connect('mongodb+srv://ogonick:ogonick@cluster0.kaj4xt4.mongodb.net/?retryWrites=true&w=majority')
 mongoose.connect(process.env.MONGODB_URI)
 .then(()=> {
   console.log('db Ok')
