@@ -12,7 +12,7 @@ import { register, login, getMe } from './controllers/UserController.js';
 import * as PostController from './controllers/PostController.js'
 import handleValidationErrors from './utils/handleValidationErrors.js';
 
-mongoose.connect(process.env.MOGODB_URI)
+mongoose.connect(process.env.MONGODB_URI)
 .then(()=> {
   console.log('db Ok')
 })
